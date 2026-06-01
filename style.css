@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: 100vh;
+    width: 100%;
+    background-image: radial-gradient(ellipse, rgba(232, 223, 223, 0.797) ,rgba(46, 44, 44, 0.507)),url("jeremy-brady-vK26p2SFX3E-unsplash.jpg");
+    background-size:cover ;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.container{
+    /* height: 100%; */
+    width:60%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(238, 246, 246, 0.634);
+    border-radius: 2rem;
+    padding: 2rem;
+    background-color: rgba(250, 235, 215, 0.278);
+}
+.header{
+    width:100%;
+    display: flex;
+    justify-content:space-between;
+    padding:0rem 2rem;
+}
+.current-weather{
+    width:100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+.text{
+     /* width:50%;  */
+     display: flex;
+     align-items: center;
+     margin:1rem;
+     font-size: large;
+      border: 1px solid rgba(182, 171, 171, 0.584);
+    background-color: rgba(250, 235, 215, 0.429);
+    border-radius: 0.5rem;
+    padding:    1rem;
+
+}
+.text img{
+    height: 3rem;
+    width:3rem;
+    margin-right: 1rem;
+    border-radius: 10%;
+}
+.today-weather{
+        width:100%; 
+
+    display: flex;
+    gap: 1rem;
+    overflow-x:scroll;
+    /* scrollbar-width: none;  */
+    padding: 10px;
+}
+.today-weather::-webkit-scrollbar {
+    height: 8px;
+}
+
+.today-weather::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.today-weather::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.4);
+    border-radius: 10px;
+}
+
+.today-weather::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.7);
+}
+.hour-card{
+    border: 1px solid rgba(182, 171, 171, 0.584);
+    background-color: rgba(250, 235, 215, 0.429);
+    min-width: 5rem;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    flex-shrink: 0;
+    /* font-size: small; */
+}
+.hour-card div{
+     display: flex;
+     align-items: center;
+}
+.hour-card img{
+    height: 2rem;
+    /* width:3rem; */
+    margin-right: 1rem;
+    border-radius: 10%;
+}
+.extra{
+    width:50%;
+    border: 1px solid rgba(182, 171, 171, 0.584);
+    background-color: rgba(250, 235, 215, 0.429);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top:1rem;
+}
+@media (max-width:500px) {
+    .extra,.text{
+        width:100%;
+    }
+    
+}
