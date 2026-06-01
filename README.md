@@ -94,6 +94,3 @@ Pratheeksha
 GitHub:
 https://github.com/Pratheeksha27032007
 
-## License
-
-This project is open-source and available under the MIT License.
