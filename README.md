@@ -33,6 +33,8 @@ Weather-api/
 ├── background-image.jpg
 └── README.md
 ```
+## Screenshots
+<img width="1861" height="867" alt="image" src="https://github.com/user-attachments/assets/1e03bda7-c905-4d55-b6c5-f5ad8982e6fc" />
 
 ## Installation
 
@@ -67,9 +69,7 @@ const key = "YOUR_API_KEY";
 
 ## Usage
 
-1. Enter a city name.
-2. Fetch weather data.
-3. View:
+ View:
 
    * Temperature
    * Weather condition
