@@ -1,8 +1,6 @@
 // import dotenv from "dotenv";
 // dotenv.config();
-// const cityKey ="AlH43xGtEarF1vyGPPga5kTOWUAFMFPg6h6K2tHb"
-
-const key =  "94c042f35ed8414e98b131646263105";
+const key =  "YOUR_API_KEY";
 const url =`https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${key}&format=json`;
 // &q=bengaluru
 // &num_of_days=1
@@ -13,8 +11,42 @@ function formatTime(time) {
     time = time.padStart(4, "0");
     return `${time.slice(0,2)}:${time.slice(2)}`;
 }
+async function rewrite(place){
+     if(place){
+        place=place.trim().toLowerCase();
+        document.querySelector(".today-weather").innerHTML=""
+       await API_CALL(place);
+        document.querySelector("#place").innerText=capitalize(place);      
+    }
+}
 let place="bengaluru";
-(async ()=>{
+const btn=document.querySelector(".change");
+btn.addEventListener("click",async ()=>{
+    const placee=document.querySelector("#place");
+    placee.innerHTML=`
+    <form id="cityForm">
+         <input type="text" id="input">
+        <button id="search">Search</button>
+    </form>
+    `
+    const form = document.querySelector("#cityForm");
+
+    form.addEventListener("submit",async (e) => {
+    e.preventDefault(); // prevents page refresh
+     const city = document.querySelector("#input").value;
+
+    console.log(city); // output in console
+    await rewrite(city)
+    // Example
+  //  document.querySelector("#output").innerText =`You searched for ${city}`;
+    });
+   
+});
+
+
+
+
+const API_CALL=async (place)=>{
 response = await fetch(`${url}&q=${place}&num_of_days=1`);
 data = await response.json();
 console.log(data.data);
@@ -33,6 +65,7 @@ hourly.forEach(hour => {
     card.innerHTML = `
         <div><img src="${hour.weatherIconUrl[0].value}">
         <p>${hour.weatherDesc[0].value}</p></div>
+        <hr>
         <p>${hour.tempC}°C</p>
         <h4>${formatTime(hour.time)}</h4>
     `;
@@ -42,11 +75,12 @@ const extra=document.querySelector(".extra");
 const info=data.data.current_condition[0]
 extra.innerHTML=`
     <p>Humidity : ${info.humidity}</p> <hr>
-    <p>Precipitation (in mm) : ${info.precipMM}</p> <hr>
-    <p>Wind direction : ${info.winddirDegree}</p> <hr>
-    <p>Wind Speed(Kmph) : ${info.windspeedKmph}</p>
+    <p>Precipitation (in mm) : ${info.precipMM} mm</p> <hr>
+    <p>Wind direction : ${info.winddirDegree} °</p> <hr>
+    <p>Wind Speed(Kmph) : ${info.windspeedKmph} Kmph    </p>
 `
-})();
+}
+API_CALL(place);
 
 //header
 const currentTime = new Date().toLocaleTimeString([], {
@@ -66,6 +100,5 @@ const date = new Date().toLocaleDateString("en-IN", {
 });
 document.querySelector(".date-and-day").firstElementChild.innerText=date;
 document.querySelector(".date-and-day").lastElementChild.innerText=day;
-
 
 

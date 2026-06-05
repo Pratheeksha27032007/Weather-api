@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-
+   /* font-family: 'Inter', sans-serif; */
 }
 body{
     height: 100vh;
@@ -90,6 +90,7 @@ body{
     border-radius: 10px;
     text-align: center;
     flex-shrink: 0;
+    width:8rem;
     /* font-size: small; */
 }
 .hour-card div{
@@ -100,7 +101,10 @@ body{
     height: 2rem;
     /* width:3rem; */
     margin-right: 1rem;
+    margin-bottom: 0.5rem;
+
     border-radius: 10%;
+
 }
 .extra{
     width:50%;
@@ -115,4 +119,27 @@ body{
         width:100%;
     }
     
+}
+.change{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color:rgb(81, 80, 80);
+    margin-top: 10px;
+}
+.change:hover{
+    text-decoration: underline;
+}
+#input{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgba(182, 171, 171, 0.584);
+}
+#search{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(182, 171, 171, 0.584);
+    background-color: rgba(250, 235, 215, 0.429);
+    color:rgb(81, 80, 80);
+    margin-left: 5px;
 }
