@@ -34,7 +34,8 @@ Weather-api/
 └── README.md
 ```
 ## Screenshots
-<img width="1861" height="867" alt="image" src="https://github.com/user-attachments/assets/1e03bda7-c905-4d55-b6c5-f5ad8982e6fc" />
+<img width="1891" height="895" alt="image" src="https://github.com/user-attachments/assets/409020ce-b154-446f-b30f-298dccdaf14a" />
+
 
 ## Installation
 
