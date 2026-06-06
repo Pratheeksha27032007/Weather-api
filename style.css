@@ -13,6 +13,10 @@ body{
     align-items:center;
     justify-content: center;
 }
+#place{
+    color:rgb(71, 70, 70);
+    font-size: 2rem;
+}
 .container{
     /* height: 100%; */
     width:60%;
@@ -105,6 +109,13 @@ body{
 
     border-radius: 10%;
 
+}
+.temptime{
+    display: flex;
+    align-items: space-between;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        color:rgba(52, 51, 51, 0.84);
 }
 .extra{
     width:50%;

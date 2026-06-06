@@ -1,6 +1,6 @@
 // import dotenv from "dotenv";
 // dotenv.config();
-const key =  "YOUR_API_KEY";
+const key =  "94c042f35ed8414e98b131646263105";
 const url =`https://api.worldweatheronline.com/premium/v1/weather.ashx?key=${key}&format=json`;
 // &q=bengaluru
 // &num_of_days=1
@@ -13,11 +13,24 @@ function formatTime(time) {
 }
 async function rewrite(place){
      if(place){
+        try{
         place=place.trim().toLowerCase();
         document.querySelector(".today-weather").innerHTML=""
        await API_CALL(place);
-        document.querySelector("#place").innerText=capitalize(place);      
+        document.querySelector("#place").innerText=capitalize(place);
+        document.querySelector(".extra").style.display="block";
+         document.querySelector(".today-weather").style.visibility="visible";
+        document.querySelector(".current-weather").style.visibility="visible";
+            document.querySelector(".error").innerHTML="";
+     }catch(err){
+        document.querySelector(".error").innerHTML=`<h1 style="color:gray;text-align:center;margin-top:20px;">Please enter a valid city name</h1>`;
+        document.querySelector(".today-weather").style.visibility="hidden";
+        document.querySelector(".current-weather").style.visibility="hidden";
+
+        document.querySelector(".extra").style.display="none";
+     }     
     }
+    
 }
 let place="bengaluru";
 const btn=document.querySelector(".change");
@@ -26,7 +39,7 @@ btn.addEventListener("click",async ()=>{
     placee.innerHTML=`
     <form id="cityForm">
          <input type="text" id="input">
-        <button id="search">Search</button>
+        <button type="submit" id="search">Search</button>
     </form>
     `
     const form = document.querySelector("#cityForm");
@@ -66,8 +79,11 @@ hourly.forEach(hour => {
         <div><img src="${hour.weatherIconUrl[0].value}">
         <p>${hour.weatherDesc[0].value}</p></div>
         <hr>
-        <p>${hour.tempC}°C</p>
-        <h4>${formatTime(hour.time)}</h4>
+        <div class="temptime">
+            <p>${hour.tempC}°C</p>
+            <h4>${formatTime(hour.time)}</h4>
+        </div>
+        
     `;
     todayWeather.appendChild(card);
 });
